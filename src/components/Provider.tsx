@@ -57,9 +57,16 @@ const Provider = () => {
 
     useEffect(()=>{
         const getData = JSON.parse(localStorage.getItem('todo')!)
-        setFinelArr([...textArr,getData])
+        // setTextArr([...textArr,getData])
+        console.log("todoval..iii", getData);
+        for (const element of getData) {
+            state.push(element);
+            console.log("textArr",textArr);
+          }
+        //   localStorage.setItem('todo',JSON.stringify(state))
         
     },[])
+
     // setFinelArr(textArr)
     console.log("todoval...", finalArr);
 
@@ -69,43 +76,6 @@ const Provider = () => {
     },[state])
    
 
-
-    // const addToDo = (): void=>{
-    //     if (inputRef.current) {
-    //         const inputVal: string= inputRef.current.value;  
-    //         const todoVal:any = JSON.parse(localStorage.getItem('todo')!)
-       
-        //    if(todoVal?.length){
-        //      const list = [...todo,{todo : inputVal}];
-        //      console.log(list)
-        //     //  localStorage.setItem('todo',JSON.stringify(list))
-        //      localStorage.setItem('todo',JSON.stringify(state))
-        //     //  setTodo(list)
-        //    }
-        //    else{
-        //      const todo =[{todo:inputVal}]
-        //      localStorage.setItem('todo', JSON.stringify(state));
-        //      setLoading(true)
-        //    }
-    //        inputRef.current.value="";
-    //      }
-    // }
-// interface GetTodo {
-//     todo: string
-// }
-    // useEffect(() => {
-    //     const todoVal:GetTodo[] = JSON.parse(localStorage.getItem('todo')!)
-    //     console.log("todoVal", todoVal);
-        
-    //     // setTodo(todoVal);
-    //   },[inputRef,loading])
-
-    //   const handleDelete = (id:number) => {
-    //     const todoValue:any = JSON.parse(localStorage.getItem('todo')!)
-    //     const filteredVal = todoValue.filter((it:object,index:number)=> index !== action.id)
-    //     setTodo(filteredVal)
-    //     localStorage.setItem('todo',JSON.stringify(filteredVal))
-    //   }
 
     return (
         <Box sx={{ flexGrow: 1 }}>
